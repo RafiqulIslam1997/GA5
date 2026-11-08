@@ -1,8 +1,11 @@
 #!/bin/bash
+#SBATCH --account=PAS3493
+#SBATCH --output=slurm-multiqc-%j.out
+#SBATCH --mail-type=FAIL
 set -euo pipefail
 
-# Run MultiQC to summarize the output of other programs (e.g. FastQC) in an input dir
-# Usage: bash scripts/multiqc.sh <input dir> <output dir>
+# Run MultiQC to summarize the output of other programs in an input dir
+# Usage: sbatch scripts/multiqc.sh <input dir> <output dir>
 
 # Constants
 MULTIQC_CONTAINER=oras://community.wave.seqera.io/library/multiqc:1.35--562c547b518ebe20
