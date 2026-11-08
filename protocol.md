@@ -3,9 +3,9 @@
 - Author: Md. Rafiqul Islam
 - Date created: 2026-11-07
 - Date last modified: 2026-11-08
-- This was run at the <???> cluster of the Ohio Supercomputer Center (<https://www.osc.edu>)
+- This was run at the Pitzer cluster of the Ohio Supercomputer Center (<https://www.osc.edu>)
 - OSC working dir: /fs/ess/PAS3493/people/islam300/GA5
-- GitHub repository: <???>
+- GitHub repository: https://github.com/RafiqulIslam1997/GA5
 
 ## Prerequisites
 

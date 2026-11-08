@@ -1,5 +1,7 @@
 # GA5 answers - Md. Rafiqul Islam
 
+[![DOI](https://sandbox.zenodo.org/badge/1449895291.svg)](https://handle.test.datacite.org/10.5072/zenodo.636776)
+
 ------------------------------------------------------------------------
 
 ## Part A: Your project dir, Git repo, and protocol
@@ -214,4 +216,4 @@ and output paths.
 
 ### 20: Get a (test) DOI with Zenodo
 
-*Answer*: Your Zenodo Sandbox DOI:
+*Answer*: Your Zenodo Sandbox DOI: 10.5072/zenodo.636777
