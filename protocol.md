@@ -55,11 +55,76 @@ done
 
 ## Step 2: Creating a transcriptome index with Salmon
 
-<???>
+Create one Salmon index from the reference transcriptome:
+
+```bash
+sbatch scripts/salmon_index.sh "$ref_transcripts" "$outdir/salmon_index"
+```
+
+Monitor the job:
+
+```bash
+squeue -u islam300 -l
+```
+
+After the job finishes, check its Slurm log, output files, and index size:
+
+```bash
+cat slurm-salmon_index-*.out
+ls -lh "$outdir/salmon_index"
+du -sh "$outdir/salmon_index"
+```
+
+After confirming success, move the Slurm log:
+
+```bash
+mv -v slurm-salmon_index-*.out "$outdir/salmon_index/logs/"
+```
 
 ## Step 3: Pseudo-alignment and quantification with Salmon
 
-<???>
+After the index and all trimming jobs have completed successfully, run Salmon
+once per sample using the trimmed paired-end reads.
+
+The script takes the both trimmed R1 and R2 files, Salmon index directory
+and quantification output directory as arguments.
+
+```bash
+for fastq_r1 in "$outdir"/trimgalore/*_R1.fastq.gz; do
+    fastq_r2=${fastq_r1/_R1/_R2}
+    sbatch scripts/salmon_quant.sh "$fastq_r1" "$fastq_r2" "$outdir/salmon_index" "$outdir/salmon_quant"
+done
+```
+
+Monitor the jobs:
+
+```bash
+squeue -u islam300 -l
+```
+
+After all quantification jobs finish, check their Slurm logs and output files:
+
+```bash
+grep -c "Successfully finished script salmon_quant.sh" slurm-salmon_quant-*.out
+```
+
+```bash
+less slurm-salmon_quant-*.out
+```
+
+```bash
+ls -lh "$outdir"/salmon_quant/*/quant.sf
+```
+
+```bash
+ls "$outdir"/salmon_quant/*/quant.sf | wc -l
+```
+
+After confirming that all jobs succeeded, move their Slurm logs:
+
+```bash
+mv -v slurm-salmon_quant-*.out "$outdir/salmon_quant/logs/"
+```
 
 ## Step 4: Summarizing the results of all steps with MultiQC
 
