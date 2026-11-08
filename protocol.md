@@ -35,6 +35,10 @@ wget -P data/ref https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/016/801/865/GCF_01
 
 ## Set up: Set file paths
 
+Run the following variable assignments at the start of every new terminal
+session before continuing the workflow. These variables are available only
+in the terminal session where they were defined.
+
 ```bash
 # Inputs:
 fastq_dir=../garrigos/fastq

@@ -1,18 +1,3 @@
-<!--
-GA5 README template.
-- Add your answers to each question's section below.
-- For each question where we want you to add your commands,
-  put the command(s) you ran in the terminal in the corresponding ```bash code block.
-- Where we want to see a command's output, there is a plain ``` code block
-  right below the command block: paste the output there.
-- The code to run each step of the workflow goes in `protocol.md`, not here:
-  you don't need to repeat it in this file.
-- You don't need to paste the contents of your scripts into this file:
-  we will look at the scripts in your `scripts` dir directly
-  (so make sure you commit them!).
-- Delete instructional comments like this one as you go.
--->
-
 # GA5 answers - Md. Rafiqul Islam
 
 ------------------------------------------------------------------------
@@ -21,11 +6,8 @@ GA5 README template.
 
 ### 1: Fill in the top of the protocol
 
-<!-- No answer needed here -- we check `protocol.md` directly. -->
-
 ### 2: Markdown formatting
 
-<!-- No answer needed here -- we check the formatting of both Markdown files. -->
 
 ### 3: Create subdirs, and copy the scripts
 
@@ -35,11 +17,7 @@ mkdir -p scripts data/ref results
 
 ### 4: Initialize a Git repository, and commit your first files
 
-<!-- No answer needed here -- we check the repo directly. -->
-
 ### 5: Download the reference transcriptome
-
-<!-- Put the download command in `protocol.md`, not here. -->
 
 Code to count the number of transcripts:
 
@@ -60,8 +38,6 @@ The output of the command was:
 ## Part B: Read trimming
 
 ### 6: Run TrimGalore
-
-<!-- Put the code to run TrimGalore in `protocol.md`, not here. -->
 
 *Answer*: Whether all batch jobs succeeded, and how you checked that
 (and any problems you encountered, and how you solved them):
@@ -99,8 +75,6 @@ The output of the command was:
 *Answer*: The size of the index dir: **1.1 G**
 
 ### 8: Run Salmon for all samples
-
-<!-- No answer needed here -- we check `protocol.md` directly. -->
 
 ### 9: The transcripts with the most reads
 
@@ -175,8 +149,6 @@ results/salmon_quant/S86/logs/salmon_quant.log:mapping rate: 83.0532%
 
 ### 12: Update your MultiQC script
 
-<!-- No need to paste the script: we'll look at scripts/multiqc.sh and its Git history directly. -->
-
 ### 13: Run MultiQC
 
 *Answer*: For each program, the number of reports that MultiQC found,
@@ -218,17 +190,27 @@ and why you think these lengths are the most common:
 *Answer*: At least three of Claude's suggestions,
 and whether you agree or disagree with each one, and why:
 
+1. Claude suggested completing the protocol header and describing the input data. I agree because the cluster name, data source, file naming pattern and expected sample count help another person repeat the workflow.
+
+2. Claude suggested explaining that variables must be reset in a new terminal session and adding checks for missing samples. I agree because variables aren't carried over to a new session and checking the output counts help to detect failed or missing samples.
+
+3. Claude suggested making the cluster settings and thread counts easier to adjust. I agree that users of another OSC project should know how to change the account setting. However, I don't think that an explicit CPU or time request is essential for this MultiQC run as it completed successfully using the default settings and the assignment didn't require those options.
+
 ### 18: Address a suggestion
 
 *Answer*: Which suggestion(s) you addressed, and what you changed:
+
+- I addressed Claude’s suggestion about variables being limited to
+the current terminal session. I added a note before the “Set file paths”
+code block telling users to rerun the variable assignments whenever they
+open a new terminal. This will help to prevent error caused by undefined input
+and output paths.
 
 ------------------------------------------------------------------------
 
 ## Part F: Publish your repo on GitHub
 
 ### 19: Create a GitHub repository and push
-
-<!-- No answer needed here -- we check your GitHub repo directly. -->
 
 ### 20: Get a (test) DOI with Zenodo
 
