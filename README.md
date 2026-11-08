@@ -167,7 +167,7 @@ results/salmon_quant/S85/logs/salmon_quant.log:mapping rate: 76.9540%
 results/salmon_quant/S86/logs/salmon_quant.log:mapping rate: 83.0532%
 ```
 
-*Answer*: The sample with the lowest mapping rate:
+*Answer*: The sample with the lowest mapping rate: S83
 
 ------------------------------------------------------------------------
 
@@ -182,15 +182,26 @@ results/salmon_quant/S86/logs/salmon_quant.log:mapping rate: 83.0532%
 *Answer*: For each program, the number of reports that MultiQC found,
 and why it found this number:
 
+- MultiQC found 22 Salmon meta reports, 22 fragment length distributions,
+and 22 library format counts reports because Salmon produced one report for each of the samples (total sample number is 22). It also found 44 Trim Galore reports and
+44 FastQC reports because each sample had two FASTQ files (R1 and R2),
+generating 22 × 2 = 44 reports.
+
 ### 14: The General Statistics table
 
 *Answer*: The sample with the lowest Salmon mapping rate,
-and whether this matches your answer to question 11:
+and whether this matches your answer to question 11: 
+
+- The sample with the lowest Salmon mapping rate is **S83** which has **76.2%** mapping rate. 
+
+- Yes, this matches with my answer to question 11.
 
 ### 15: Adapter lengths
 
 *Answer*: The most common adapter lengths, whether this surprised you,
 and why you think these lengths are the most common:
+
+- The most common adapter overlap lengths were 1–3 bp (the largest peak is seen at about 1 bp). This surprised me because the trimmed matches were very much shorter than a complete adapter sequence. It might be due to the overlaps as short as one base and short matches can occur by chance at read ends which may have contributed to the large peak at short lengths.
 
 ### 16: Ask Claude about the MultiQC report
 

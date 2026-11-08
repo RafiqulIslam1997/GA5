@@ -128,4 +128,31 @@ mv -v slurm-salmon_quant-*.out "$outdir/salmon_quant/logs/"
 
 ## Step 4: Summarizing the results of all steps with MultiQC
 
-<???>
+After trimming and Salmon quantification finished successfully,
+run MultiQC on the entire results directory.
+
+```bash
+sbatch scripts/multiqc.sh results results/multiqc
+```
+
+Monitor the job:
+
+```bash
+squeue -u islam300 -l
+```
+
+After the job finishes, check its Slurm log and output files:
+
+```bash
+cat slurm-multiqc-*.out
+ls -lh results/multiqc
+```
+
+Confirm that the log contains "Successfully finished script multiqc.sh"
+and that multiqc_report.html was produced.
+
+After confirming success, move the Slurm log:
+
+```bash
+mv -v slurm-multiqc-*.out results/multiqc/logs/
+```
