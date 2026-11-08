@@ -207,6 +207,8 @@ and why you think these lengths are the most common:
 
 *Answer*: What you asked, and what you learned from Claude's answer (in your own words):
 
+- I asked "Please examine results/multiqc/multiqc_report.html. Explain what the Trim Galore Adapter Length Distribution plot shows, what its axes represent, and how I should interpret the main peaks in this report. Use simple language and distinguish what the plot directly shows from possible explanations." I learned that each line represents one read file and most trimmed adapter matches were only 1 bp long. These short matches can occur by chance because Trim Galore allows a minimum overlap of one base. Claude also suggested checking the FastQC results for S65 and S74 because they had more adapter trimming than other samples.
+
 ------------------------------------------------------------------------
 
 ## Part E: Improving the workflow with genAI
