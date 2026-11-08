@@ -66,6 +66,12 @@ The output of the command was:
 *Answer*: Whether all batch jobs succeeded, and how you checked that
 (and any problems you encountered, and how you solved them):
 
+- All the 22 batch jobs were completed successfully. I confirmed it by checking the success messages in slurm logs and verifying that the output contains 22 trimmed R1 and R2 files each, 44 FastQC HTML reports and 44 FastQC ZIP files. The command I used to check the successfully finished counts is as follows-
+
+```bash
+grep -c "Successfully finished script trimgalore.sh" slurm-trimgalore-*.out
+```
+
 ------------------------------------------------------------------------
 
 ## Part C: Transcript quantification with Salmon

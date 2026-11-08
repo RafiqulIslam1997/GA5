@@ -46,7 +46,12 @@ outdir=results
 
 ## Step 1: Read trimming with TrimGalore
 
-<???>
+```bash
+for fastq_r1 in "$fastq_dir"/*_R1.fastq.gz; do
+    fastq_r2=${fastq_r1/_R1/_R2}
+    sbatch scripts/trimgalore.sh "$fastq_r1" "$fastq_r2" "$outdir/trimgalore"
+done
+```
 
 ## Step 2: Creating a transcriptome index with Salmon
 
